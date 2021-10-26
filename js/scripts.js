@@ -78,7 +78,7 @@ window.addEventListener('DOMContentLoaded', event => {
     
     function checkInput() {
         emailValid(email.value);
-        if (name.value !== '' && pass === true && phone.value !== '' && message.value !== '') {
+        if (name.value !== '' && email.value !== '' && phone.value !== '' && message.value !== '') {
             divSuccess.innerHTML = "Form submission successful!";
             submit.disabled = false;
         }
@@ -93,10 +93,12 @@ window.addEventListener('DOMContentLoaded', event => {
     submit.addEventListener('click', function() {
         form.appendChild(divSuccess);
         setTimeout(function() {
-            divSuccess.style.display = "none"}, 5000
-            );
             submit.disabled = true;
-            form.reset();
+            form.reset();}, 10
+            );
+            setTimeout(function() {
+                divSuccess.style.display = "none"}, 5000
+                );
     });
 
 });
