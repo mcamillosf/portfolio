@@ -51,4 +51,52 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
+    const form = document.querySelector('#contactForm');
+    const submit = document.querySelector('#submit-form');
+    const divSuccess = document.createElement('div');
+    const name = document.querySelector('#name');
+    const email = document.querySelector('#email');
+    const phone = document.querySelector('#phone');
+    const message = document.querySelector('#message');
+
+    submit.disabled = true;
+    let pass;
+    
+    function emailValid(email) {
+        const valid = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+        const validated = valid.test(String(email).toLocaleLowerCase());
+        if (validated) {
+            document.getElementById('email').style.borderColor = '';
+            pass = validated
+            return validated;
+        } else if (!validated) {
+            document.getElementById('email').style.borderColor = 'red';
+            pass = validated;
+            return validated;
+        }
+    }
+    
+    function checkInput() {
+        emailValid(email.value);
+        if (name.value !== '' && pass === true && phone.value !== '' && message.value !== '') {
+            divSuccess.innerHTML = "Form submission successful!";
+            submit.disabled = false;
+        }
+    }
+
+    name.addEventListener("keyup", checkInput);
+    email.addEventListener('keyup', checkInput);
+    phone.addEventListener('keyup', checkInput);
+    message.addEventListener('keyup', checkInput);
+    
+
+    submit.addEventListener('click', function() {
+        form.appendChild(divSuccess);
+        setTimeout(function() {
+            divSuccess.style.display = "none"}, 5000
+            );
+            submit.disabled = true;
+            form.reset();
+    });
+
 });

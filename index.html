@@ -15,6 +15,28 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <!-- EmailJS Form Script -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+        <script type="text/javascript">
+            (function() {
+                // https://dashboard.emailjs.com/admin/integration
+                emailjs.init('user_ooxCBfGqcl3SYOvAERSw2');
+            })();
+        </script>
+        <script type="text/javascript">
+            window.onload = function() {
+                document.getElementById('contactForm').addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    // these IDs from the previous steps
+                    emailjs.sendForm('service_ravsec2', 'template_sqmv23n', this)
+                        .then(function() {
+                            console.log('SUCCESS!');
+                        }, function(error) {
+                            console.log('FAILED...', error);
+                        });
+                });
+            }
+        </script>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -153,58 +175,34 @@
                 <!-- Contact Section Form-->
                 <div class="row justify-content-center">
                     <div class="col-lg-8 col-xl-7">
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- * * SB Forms Contact Form * *-->
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- This form is pre-integrated with SB Forms.-->
-                        <!-- To make this form functional, sign up at-->
-                        <!-- https://startbootstrap.com/solution/contact-forms-->
-                        <!-- to get an API token!-->
-                        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                        <form id="contactForm">
                             <!-- Name input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                                <input class="form-control" id="name" type="text" placeholder="Enter your name..." name="user_name" />
                                 <label for="name">Full name</label>
                                 <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
                             </div>
                             <!-- Email address input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
+                                <input class="form-control" id="email" type="email" placeholder="name@example.com" name="user_email" />
                                 <label for="email">Email address</label>
                                 <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
                                 <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
                             </div>
                             <!-- Phone number input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
+                                <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" name="contact_number" />
                                 <label for="phone">Phone number</label>
                                 <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
                             </div>
                             <!-- Message input-->
                             <div class="form-floating mb-3">
-                                <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
+                                <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" name="message"></textarea>
                                 <label for="message">Message</label>
                                 <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
                             </div>
-                            <!-- Submit success message-->
-                            <!---->
-                            <!-- This is what your users will see when the form-->
-                            <!-- has successfully submitted-->
-                            <div class="d-none" id="submitSuccessMessage">
-                                <div class="text-center mb-3">
-                                    <div class="fw-bolder">Form submission successful!</div>
-                                    To activate this form, sign up at
-                                    <br />
-                                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                                </div>
-                            </div>
-                            <!-- Submit error message-->
-                            <!---->
-                            <!-- This is what your users will see when there is-->
-                            <!-- an error submitting the form-->
-                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                             <!-- Submit Button-->
-                            <button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Send</button>
+                            <input type="submit" class="btn btn-primary btn-xl" id="submit-form" value="Send">
                         </form>
                     </div>
                 </div>
@@ -269,10 +267,10 @@
                                     <a href="https://mcamillosf.github.io/pixel-art/" target="_blank"><img class="img-fluid rounded mb-5" src="assets/images/Color-pallet.jpg" alt="..." /></a>
                                     <!-- Portfolio Modal - Text-->
                                     <p class="mb-4">This is one of many projects that I've built in the course that I'm doing. In this project you can create a box with a max 50x50 to paint with full randomized color. You can check out the project clicking on the image.</p>
-                                    <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
+                                    <!-- <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
                                         <i class="fas fa-times fa-fw"></i>
                                         Close Window
-                                    </button>
+                                    </button> -->
                                 </div>
                             </div>
                         </div>
@@ -301,10 +299,10 @@
                                     <a href="https://mcamillosf.github.io/to-do-list/" target="_blank"><img class="img-fluid rounded mb-5" src="assets/images/To-do-List.jpg" alt="..." /></a>
                                     <!-- Portfolio Modal - Text-->
                                     <p class="mb-4">This is one of many projects that I've built in the course that I'm doing. In this project you can manage all of your tasks freely. You can check out the project clicking on the image.</p>
-                                    <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
+                                    <!-- <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
                                         <i class="fas fa-times fa-fw"></i>
                                         Close Window
-                                    </button>
+                                    </button> -->
                                 </div>
                             </div>
                         </div>
@@ -333,10 +331,10 @@
                                     <a href="https://mcamillosf.github.io/trybewarts/" target="_blank"><img class="img-fluid rounded mb-5" src="assets/images/Trybewarts.jpg" alt="..." /></a>
                                     <!-- Portfolio Modal - Text-->
                                     <p class="mb-4">This is one of many projects that I've built in the course that I'm doing. This was the first project that I had to work with colleagues. We learn a lot about how to work as a team. You can check out the project clicking on the image.</p>
-                                    <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
+                                    <!-- <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
                                         <i class="fas fa-times fa-fw"></i>
                                         Close Window
-                                    </button>
+                                    </button> -->
                                 </div>
                             </div>
                         </div>
@@ -365,10 +363,10 @@
                                     <a href="https://mcamillosf.github.io/trybewallet/#/" target="_blank"><img class="img-fluid rounded mb-5" src="assets/images/Wallet.jpg" alt="..." /></a>
                                     <!-- Portfolio Modal - Text-->
                                     <p class="mb-4">This is one of many projects that I've built in the course that I'm doing. In this project i had to create a wallet that can calculate the costs of my expenses using an external API. You can check out the project clicking on the image.</p>
-                                    <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
+                                    <!-- <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
                                         <i class="fas fa-times fa-fw"></i>
                                         Close Window
-                                    </button>
+                                    </button> -->
                                 </div>
                             </div>
                         </div>
@@ -397,10 +395,10 @@
                                     <a href="https://mcamillosf.github.io/ShoppingCart/" target="_blank"><img class="img-fluid rounded mb-5" src="assets/images/ShoppingCart.jpg" alt="..." /></a>
                                     <!-- Portfolio Modal - Text-->
                                     <p class="mb-4">This is one of many projects that I've built in the course that I'm doing. In this project I had to create a page where simulates a store, using an external API (MercadoLivre) as the source of the list. You can check out the project clicking on the image.</p>
-                                    <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
+                                    <!-- <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
                                         <i class="fas fa-times fa-fw"></i>
                                         Close Window
-                                    </button>
+                                    </button> -->
                                 </div>
                             </div>
                         </div>
@@ -429,10 +427,10 @@
                                     <a href="https://mcamillosf.github.io/recipes-app/#/" target="_blank"><img class="img-fluid rounded mb-5" src="assets/images/Recipes-App.jpg" alt="..." /></a>
                                     <!-- Portfolio Modal - Text-->
                                     <p class="mb-4">This is one of many projects that I've built in the course that I'm doing. In this project I work with a team of five colleagues and we had to build an App for Mobile where you can search for recipes and do it at home. We used an external API from <a href="https://www.themealdb.com/api.php">TheMealDB</a>. You can check out the project clicking on the image.</p>
-                                    <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
+                                    <!-- <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
                                         <i class="fas fa-times fa-fw"></i>
                                         Close Window
-                                    </button>
+                                    </button> -->
                                 </div>
                             </div>
                         </div>
@@ -444,10 +442,5 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     </body>
 </html>
