@@ -77,7 +77,7 @@ window.addEventListener('DOMContentLoaded', event => {
         } else if (!validated) {
             document.getElementById('email').style.borderColor = 'red';
             pass = validated;
-            msgError.innerHTML = "Please, type a valid email adress format."
+            msgError.innerHTML = "Please, type a valid email adress."
             form.appendChild(msgError);
             return validated;
         }
