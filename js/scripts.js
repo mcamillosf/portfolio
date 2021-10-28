@@ -54,6 +54,8 @@ window.addEventListener('DOMContentLoaded', event => {
     const form = document.querySelector('#contactForm');
     const submit = document.querySelector('#submit-form');
     const divSuccess = document.createElement('div');
+    const msgError = document.createElement('div');
+    msgError.setAttribute('id', 'msgErro');
     const name = document.querySelector('#name');
     const email = document.querySelector('#email');
     const phone = document.querySelector('#phone');
@@ -67,11 +69,16 @@ window.addEventListener('DOMContentLoaded', event => {
         const validated = valid.test(String(email).toLocaleLowerCase());
         if (validated) {
             document.getElementById('email').style.borderColor = '';
-            pass = validated
+            pass = validated;
+            if (msgError.innerHTML != '') {
+                msgError.innerHTML = ''
+            }
             return validated;
         } else if (!validated) {
             document.getElementById('email').style.borderColor = 'red';
             pass = validated;
+            msgError.innerHTML = "Please, type a valid email adress format."
+            form.appendChild(msgError);
             return validated;
         }
     }
