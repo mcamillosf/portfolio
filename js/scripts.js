@@ -88,6 +88,9 @@ window.addEventListener('DOMContentLoaded', event => {
         if (name.value !== '' && email.value !== '' && phone.value !== '' && message.value !== '') {
             divSuccess.innerHTML = "Form submission successful!";
             submit.disabled = false;
+        } else if (name.value === '' && email.value === '' && phone.value === '' && message.value === '') {
+            msgError.parentNode.removeChild(msgError);
+            document.getElementById('email').style.borderColor = '';
         }
     }
 
