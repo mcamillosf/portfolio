@@ -60,6 +60,7 @@ window.addEventListener('DOMContentLoaded', event => {
     const email = document.querySelector('#email');
     const phone = document.querySelector('#phone');
     const message = document.querySelector('#message');
+    const divEmail = document.querySelector('#divEmail');
 
     submit.disabled = true;
     let pass;
@@ -78,7 +79,7 @@ window.addEventListener('DOMContentLoaded', event => {
             document.getElementById('email').style.borderColor = 'red';
             pass = validated;
             msgError.innerHTML = "Please, type a valid email adress."
-            form.appendChild(msgError);
+            divEmail.appendChild(msgError);
             return validated;
         }
     }
@@ -91,6 +92,8 @@ window.addEventListener('DOMContentLoaded', event => {
         } else if (name.value === '' && email.value === '' && phone.value === '' && message.value === '') {
             msgError.parentNode.removeChild(msgError);
             document.getElementById('email').style.borderColor = '';
+        } else if (name.value === '' || email.value === '' || phone.value === '' || message.value === '') {
+            submit.disabled = true;
         }
     }
 

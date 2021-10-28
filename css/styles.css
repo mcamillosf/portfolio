@@ -11524,3 +11524,7 @@ html {
 .descrip {
   font-size: 15px;
 }
+
+#divEmail {
+  color: red;
+}
