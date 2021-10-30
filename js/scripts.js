@@ -85,10 +85,11 @@ window.addEventListener('DOMContentLoaded', event => {
     }
     
     function checkInput() {
-        emailValid(email.value);
         if (name.value !== '' && email.value !== '' && phone.value !== '' && message.value !== '') {
             divSuccess.innerHTML = "Form submission successful!";
             submit.disabled = false;
+        } else if (email.value !== '') {
+            emailValid(email.value);
         } else if (name.value === '' && email.value === '' && phone.value === '' && message.value === '') {
             msgError.parentNode.removeChild(msgError);
             document.getElementById('email').style.borderColor = '';
