@@ -94,7 +94,7 @@ window.addEventListener('DOMContentLoaded', event => {
     }
     
     function checkInput() {
-        if (name.value !== '' && email.value !== '' && phone.value !== '' && message.value !== '') {
+        if (name.value !== '' && email.value !== '' && phone.value !== '' && message.value !== '' && emailValid(email.value) == true) {
             divSuccess.innerHTML = "Form submission successful!";
             submit.disabled = false;
         } else if (email.value !== '') {
