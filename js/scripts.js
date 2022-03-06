@@ -54,6 +54,7 @@ window.addEventListener('DOMContentLoaded', event => {
     const form = document.querySelector('#contactForm');
     const submit = document.querySelector('#submit-form');
     const divSuccess = document.createElement('div');
+    divSuccess.classList.add('form-success');
     const msgError = document.createElement('div');
     msgError.setAttribute('id', 'msgErro');
     const name = document.querySelector('#name');
@@ -127,12 +128,12 @@ window.addEventListener('DOMContentLoaded', event => {
         this.classList.toggle('active');
         formText.forEach((e) => e.classList.toggle('active'));
         bgForm.forEach((e) => e.classList.toggle('active'));
-        // formText.forEach((e) => console.log(e));
         divider.forEach((e) => e.classList.toggle('active'));
         secondary.forEach((e) => e.classList.toggle('active'));
         portfolio.classList.toggle('active');
         contact.classList.toggle('active');
         sendLight.style.backgroundColor == '#1abc9c';
+        divSuccess.classList.toggle('active');
     }
 
 });

@@ -11644,3 +11644,11 @@ html {
   border-color: #1abc9c !important;
   transition: 0.3s;
 }
+
+.form-success {
+  color: #fff;
+}
+
+.form-success.active {
+  color: #212529;
+}
