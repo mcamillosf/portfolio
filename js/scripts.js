@@ -61,6 +61,14 @@ window.addEventListener('DOMContentLoaded', event => {
     const phone = document.querySelector('#phone');
     const message = document.querySelector('#message');
     const divEmail = document.querySelector('#divEmail');
+    const btnLight = document.querySelector('.bg-light');
+    const divider = document.querySelectorAll('.divider-black');
+    const secondary = document.querySelectorAll('.text-secondary');
+    const portfolio = document.querySelector('#portfolio');
+    const contact = document.querySelector('#contact');
+    const formText = document.querySelectorAll('.textForm');
+    const bgForm = document.querySelectorAll('.bg-form');
+    const sendLight = document.getElementById('submit-form');
 
     submit.disabled = true;
     let pass;
@@ -114,5 +122,17 @@ window.addEventListener('DOMContentLoaded', event => {
                 divSuccess.style.display = "none"}, 5000
                 );
     });
+
+    btnLight.onclick = function() {
+        this.classList.toggle('active');
+        formText.forEach((e) => e.classList.toggle('active'));
+        bgForm.forEach((e) => e.classList.toggle('active'));
+        // formText.forEach((e) => console.log(e));
+        divider.forEach((e) => e.classList.toggle('active'));
+        secondary.forEach((e) => e.classList.toggle('active'));
+        portfolio.classList.toggle('active');
+        contact.classList.toggle('active');
+        sendLight.style.backgroundColor == '#1abc9c';
+    }
 
 });
