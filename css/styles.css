@@ -11625,15 +11625,22 @@ html {
 }
 
 .bg-form:focus {
+  color: #fff;
   background-color: #121212;
 }
 
-.send-light.active {
+.bg-form.active:focus {
+  color: #212529;
+}
+
+.btn-primary.active {
   background-color: #1abc9c !important;
   border-color: #1abc9c !important;
   transition: 0.3s;
 }
 
-.send-light {
+.btn-primary {
+  background-color: #1abc9c !important;
+  border-color: #1abc9c !important;
   transition: 0.3s;
 }
