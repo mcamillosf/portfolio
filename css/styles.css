@@ -11616,7 +11616,16 @@ html {
 }
 
 .bg-form {
+  color: #fff;
   transition: 0.3s;
+}
+
+.bg-form.active {
+  color: #212529;
+}
+
+.bg-form:focus {
+  background-color: #121212;
 }
 
 .send-light.active {
@@ -11628,3 +11637,6 @@ html {
 .send-light {
   transition: 0.3s;
 }
+
+
+/* #212529 */
